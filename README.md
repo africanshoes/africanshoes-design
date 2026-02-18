@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>African Shoes Design</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+body{margin:0;font-family:'Poppins',sans-serif;background:#f2f2f2;color:#333}
+.topbar{background:#b3003c;color:#fff;padding:10px 20px;display:flex;justify-content:space-between;align-items:center}
+.logo{font-size:24px;font-weight:700}
+nav{background:#1f4e79;padding:10px 20px;display:flex;gap:20px;flex-wrap:wrap}
+nav a{color:#fff;text-decoration:none;font-weight:500;cursor:pointer}
+.hero{background:linear-gradient(to right,#000,#8B4513);color:#fff;padding:60px 20px;text-align:center}
+.section{padding:50px 20px;text-align:center;display:none}
+.gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px}
+.gallery img{width:100%;height:300px;object-fit:cover;border-radius:10px;box-shadow:0 5px 15px rgba(0,0,0,0.2)}
+.option-box{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px;padding:40px}
+.option{background:#fff;padding:20px;border-radius:10px;box-shadow:0 5px 15px rgba(0,0,0,0.2);cursor:pointer}
+.option:hover{background:#8B4513;color:#fff}
+.payment-box{background:#fff;padding:30px;margin-top:30px;border-radius:10px;box-shadow:0 5px 15px rgba(0,0,0,0.2)}
+select,textarea{padding:10px;margin:10px;width:80%;max-width:400px}
+button{padding:12px 25px;background:#25D366;color:#fff;border:none;border-radius:5px;cursor:pointer}
+button:hover{background:#128C7E}
+footer{background:linear-gradient(to right,#b3003c,#1f4e79);color:#fff;text-align:center;padding:30px;margin-top:40px}
+</style>
+
+<script>
+function showSection(id){
+document.querySelectorAll('.section').forEach(sec=>sec.style.display='none');
+document.getElementById(id).style.display='block';
+}
+
+function orderWhatsApp(product,price,section){
+
+let location=document.getElementById('delivery_'+section).value;
+let region="";
+if(location==="Dar es Salaam"){
+region=document.getElementById('dar_'+section).value;
+}else{
+region=document.getElementById('mkoa_'+section).value;
+}
+let maelezo=document.getElementById('maelezo_'+section).value;
+
+let phone="255755154363";
+
+let message =
+"Karibu African Shoes Design 👋\n\n"+
+"Nimechagua:\n"+
+"Product: "+product+"\n"+
+"Bei: "+price+" TZS\n"+
+"Location: "+location+"\n"+
+"Region: "+region+"\n"+
+"Maelezo: "+maelezo+"\n\n"+
+"Naomba maelekezo ya kukamilisha order.";
+
+window.open("https://wa.me/"+phone+"?text="+encodeURIComponent(message),"_blank");
+}
+</script>
+</head>
+<body>
+
+<div class="topbar">
+<div class="logo">AFRICAN SHOES DESIGN</div>
+<div>
+<a href="https://wa.me/255676716619" target="_blank" style="color:white;margin-right:15px">WhatsApp 1</a>
+<a href="https://wa.me/255755154363" target="_blank" style="color:white;margin-right:15px">WhatsApp 2</a>
+<a href="https://instagram.com/africanshoes_" target="_blank" style="color:white">Instagram</a>
+</div>
+</div>
+
+<nav>
+<a onclick="showSection('home')">Home</a>
+<a onclick="showSection('travota')">Travota</a>
+<a onclick="showSection('shule')">School Shoes</a>
+<a onclick="showSection('zawadi')">Gift Package</a>
+</nav>
+
+<section id="home" class="hero" style="display:block;">
+<h2>Chagua Aina ya Kiatu</h2>
+<div class="option-box">
+<div class="option" onclick="showSection('travota')">Travota - 90,000 TZS</div>
+<div class="option" onclick="showSection('shule')">School Shoes - 45,000 TZS</div>
+<div class="option" onclick="showSection('zawadi')">Gift Package - 90,000 TZS</div>
+</div>
+</section>
+
+<!-- TRAVOTA -->
+<section id="travota" class="section">
+<h2>Travota Collection</h2>
+<div class="gallery">
+<img src="1.png"><img src="2.png"><img src="3.png"><img src="6.png">
+</div>
+<div class="payment-box">
+<select id="delivery_travota">
+<option>Dar es Salaam</option>
+<option>Mikoani</option>
+</select>
+<select id="dar_travota">
+<option>Ilala</option><option>Kinondoni</option><option>Temeke</option><option>Ubungo</option><option>Kigamboni</option>
+</select>
+<select id="mkoa_travota">
+<option>Arusha</option><option>Dodoma</option><option>Mwanza</option><option>Mbeya</option><option>Morogoro</option><option>Tanga</option>
+</select>
+<textarea id="maelezo_travota" placeholder="Andika size au maelezo"></textarea>
+<button onclick="orderWhatsApp('Travota',90000,'travota')">Order kupitia WhatsApp</button>
+</div>
+</section>
+
+<!-- SCHOOL -->
+<section id="shule" class="section">
+<h2>School Shoes</h2>
+<div class="gallery">
+<img src="7.png"><img src="9.png"><img src="10.png"><img src="11.png">
+</div>
+<div class="payment-box">
+<select id="delivery_shule">
+<option>Dar es Salaam</option>
+<option>Mikoani</option>
+</select>
+<select id="dar_shule">
+<option>Ilala</option><option>Kinondoni</option><option>Temeke</option><option>Ubungo</option><option>Kigamboni</option>
+</select>
+<select id="mkoa_shule">
+<option>Arusha</option><option>Dodoma</option><option>Mwanza</option><option>Mbeya</option><option>Morogoro</option><option>Tanga</option>
+</select>
+<textarea id="maelezo_shule" placeholder="Andika size au maelezo"></textarea>
+<button onclick="orderWhatsApp('School Shoes',45000,'shule')">Order kupitia WhatsApp</button>
+</div>
+</section>
+
+<!-- GIFT -->
+<section id="zawadi" class="section">
+<h2>Gift Package</h2>
+<div class="gallery">
+<img src="3.png"><img src="4.png"><img src="5.png">
+</div>
+<div class="payment-box">
+<select id="delivery_zawadi">
+<option>Dar es Salaam</option>
+<option>Mikoani</option>
+</select>
+<select id="dar_zawadi">
+<option>Ilala</option><option>Kinondoni</option><option>Temeke</option><option>Ubungo</option><option>Kigamboni</option>
+</select>
+<select id="mkoa_zawadi">
+<option>Arusha</option><option>Dodoma</option><option>Mwanza</option><option>Mbeya</option><option>Morogoro</option><option>Tanga</option>
+</select>
+<textarea id="maelezo_zawadi" placeholder="Andika maelezo"></textarea>
+<button onclick="orderWhatsApp('Gift Package',90000,'zawadi')">Order kupitia WhatsApp</button>
+</div>
+</section>
+
+<footer>
+<p>Mpesa: 0755154363</p>
+<p>Tigopesa: 0657576696</p>
+<p>NMB: 24510034196 - Edson Mhagama</p>
+<p>Vodacom Lipa: 59919307 - African Shoes</p>
+<p>&copy; 2026 African Shoes Design - Tanzania</p>
+</footer>
+
+</body>
+</html>
